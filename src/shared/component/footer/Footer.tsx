@@ -8,6 +8,7 @@ import {
   THIRDDESKTOPLINKS,
   FOURTHDESKTOPLINKS,
 } from "./footer.constants";
+import { VMG_LOGO } from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
   return (
@@ -117,6 +118,40 @@ const Footer = (): JSX.Element => {
           </ul>
         </div>
       </div>
+      <div className="flex flex-col lg:flex-row justify-between pt-8 items-center">
+        <div className="flex flex-col lg:flex-row justify-center items-center">
+          <a
+            href="/_"
+            className="text-default cursor-pointer text-xl rounded-full w-24 lg:pb-0"
+          >
+            <Image
+              src="https://view.com.au/viewstatic/lancer/_next/static/media/viewLogo.8f31e2e5.svg"
+              alt="view.com.au logo"
+              width={96}
+              height={24.5}
+            />
+          </a>
+        </div>
+        <div className="flex flex-col items-center gap-1 lg:flex-row lg:gap-2 text-at-gray-700 text-center lg:text-end">
+          <p className="text-sm font-normal lg:w-32 lg:leading-4">
+            Part of View Media Group (VMG)
+          </p>
+          <a
+            href="/_"
+            className="text-default cursor-pointer text-xl rounded-full lg:pt-1 w-110 h-7"
+          >
+            <Image
+              src={VMG_LOGO}
+              alt="view media group logo"
+              width={110}
+              height={24.5}
+            />
+          </a>
+        </div>
+      </div>
+      <p className="text-sm font-normal py-2 text-center lg:text-left">
+        Copyright © 2001-2024 | view.com.au Pty Ltd
+      </p>
     </footer>
   );
 };

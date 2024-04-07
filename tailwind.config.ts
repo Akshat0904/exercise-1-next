@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       spacing: {
         '15': '52px',
+        '110': '110px',
         '1200' : '1200px'
       },
       colors:{
