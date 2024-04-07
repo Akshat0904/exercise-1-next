@@ -15,6 +15,7 @@ const config: Config = {
       colors:{
         'at-light-500': '#e5e7eb',
         'at-gray-500': "#333333",
+        'at-gray-700': '#666666',
         'at-primary': '#0073CF',
         'at-primary-700': '#0464B0'
       }
