@@ -24,7 +24,6 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
   const renderSidebarLinks = (links: ISidebarLink[]) => {
     return (
       <>
-        {" "}
         {links.map((sidebarlink) => (
           <li
             key={sidebarlink.title}
@@ -49,23 +48,20 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
   };
 
   return (
-    <>
-      {" "}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
-          isNavOpen ? "translate-x-0" : "-translate-x-full"
-        } `}
-      >
-        <main className="pt-15 pb-4">
-          <ul className="pb-4 mb-4">
-            {renderMainLinks()}
-            {renderSidebarLinks(firstPartOfLinks)}
-            <hr className="my-4 border" />
-            {renderSidebarLinks(secondPartOfLinks)}
-          </ul>
-        </main>
+    <div
+      className={`fixed top-0 left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
+        isNavOpen ? "translate-x-0" : "-translate-x-full"
+      } `}
+    >
+      <div className="pt-15 pb-4">
+        <ul className="pb-4 mb-4">
+          {renderMainLinks()}
+          {renderSidebarLinks(firstPartOfLinks)}
+          <hr className="my-4 border" />
+          {renderSidebarLinks(secondPartOfLinks)}
+        </ul>
       </div>
-    </>
+    </div>
   );
 };
 

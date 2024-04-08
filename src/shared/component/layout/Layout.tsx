@@ -3,9 +3,13 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import React from "react";
 import Sidebar from "../sidebar/Sidebar";
-import { ILayoutProps } from "./layout.interface";
+import { ReactNode } from "react";
 
-const Layout: React.FC<ILayoutProps> = ({ children }) => {
+export interface IProps {
+  children: ReactNode;
+}
+
+const Layout: React.FC<IProps> = ({ children }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav: () => void = () => {
