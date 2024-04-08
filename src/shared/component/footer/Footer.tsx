@@ -8,7 +8,7 @@ import {
   THIRDDESKTOPLINKS,
   FOURTHDESKTOPLINKS,
 } from "./footer.constants";
-import { VMG_LOGO } from "@/public/images/VMG_logo.svg";
+import VMG_LOGO from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
   return (

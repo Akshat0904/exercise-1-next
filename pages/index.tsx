@@ -5,7 +5,7 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <Header />
-      <div className="text-start">HomePage</div>
+      <p>Main section</p>
       <Footer />
     </>
   );

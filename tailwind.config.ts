@@ -11,6 +11,8 @@ const config: Config = {
       spacing: {
         '15': '52px',
         '110': '110px',
+        '432' : '432px',
+        '600': '600px',
         '1200' : '1200px'
       },
       colors:{
