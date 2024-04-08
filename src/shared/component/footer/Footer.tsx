@@ -90,7 +90,7 @@ const Footer = (): JSX.Element => {
   };
 
   return (
-    <footer className="px-5 lg:max-w-1200 lg:mx-auto lg:px-0">
+    <footer className="px-5 lg:max-w-1200 lg:mx-auto  lg:px-0">
       <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
         {renderSocialMediaLinks()}
         <div className="hidden lg:block">{renderContactLinks()}</div>

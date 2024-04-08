@@ -1,4 +1,5 @@
 export interface ISidebarLink  {
-    src: string;
+    src?: string;
     title: string;
+    href: string
   };

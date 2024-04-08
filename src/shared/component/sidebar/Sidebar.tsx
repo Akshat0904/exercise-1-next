@@ -1,7 +1,53 @@
 import Image from "next/image";
 import { SIDEBAR_LINKS } from "./sidebar.constants";
+import { ISidebarLink } from "./sidebar.interface";
 
 const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
+  const firstPartOfLinks = SIDEBAR_LINKS.slice(3, 5);
+  const secondPartOfLinks = SIDEBAR_LINKS.slice(5);
+
+  const renderMainLinks = () => {
+    let mainLinks = SIDEBAR_LINKS.slice(0, 3);
+    return (
+      <>
+        {mainLinks.map((mainLink) => (
+          <li key={mainLink.title} className="flex items-baseline px-5 py-3">
+            <a href="/_" className="font-medium text-2xl text-black">
+              {mainLink.title}
+            </a>
+          </li>
+        ))}
+      </>
+    );
+  };
+
+  const renderSidebarLinks = (links: ISidebarLink[]) => {
+    return (
+      <>
+        {" "}
+        {links.map((sidebarlink) => (
+          <li
+            key={sidebarlink.title}
+            className="flex items-baseline py-1 px-3 "
+          >
+            <a
+              href="/_"
+              className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
+            >
+              <Image
+                src={sidebarlink.src!}
+                alt="Icon-2"
+                width={20}
+                height={20}
+              />
+              <span>{sidebarlink.title}</span>
+            </a>
+          </li>
+        ))}
+      </>
+    );
+  };
+
   return (
     <>
       {" "}
@@ -12,69 +58,10 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
       >
         <main className="pt-15 pb-4">
           <ul className="pb-4 mb-4">
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Buy
-              </a>
-            </li>
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Rent
-              </a>
-            </li>
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Sold
-              </a>
-            </li>
-            <li className="flex items-baseline py-1 px-3 ">
-              <a
-                href="/_"
-                className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-              >
-                <Image
-                  src="https://view.com.au/viewstatic/lancer/_next/static/media/nav-rocket.15d190c5.svg"
-                  alt="Icon-1"
-                  width={20}
-                  height={20}
-                />
-                <span>New Developments</span>
-              </a>
-            </li>
-            <li className="flex items-baseline py-1 px-3 ">
-              <a
-                href="/_"
-                className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-              >
-                <Image
-                  src="https://view.com.au/viewstatic/lancer/_next/static/media/nav-scales.37599d36.svg"
-                  alt="Icon-2"
-                  width={20}
-                  height={20}
-                />
-                <span>Price Estimate</span>
-              </a>
-            </li>
+            {renderMainLinks()}
+            {renderSidebarLinks(firstPartOfLinks)}
             <hr className="my-4 border" />
-            {SIDEBAR_LINKS.map((sidebarlink) => (
-              <li
-                key={sidebarlink.title}
-                className="flex items-baseline py-1 px-3 "
-              >
-                <a
-                  href="/_"
-                  className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-                >
-                  <Image
-                    src={sidebarlink.src}
-                    alt="Icon-2"
-                    width={20}
-                    height={20}
-                  />
-                  <span>{sidebarlink.title}</span>
-                </a>
-              </li>
-            ))}
+            {renderSidebarLinks(secondPartOfLinks)}
           </ul>
         </main>
       </div>

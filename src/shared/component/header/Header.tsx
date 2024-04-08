@@ -3,6 +3,23 @@ import { NAV_LINKS } from "./header.constants";
 import Hamburger from "hamburger-react";
 
 const Header = ({ toggleNav }: { toggleNav: () => void }): JSX.Element => {
+  const renderNavLinks = (): JSX.Element => {
+    return (
+      <ul className="w-full flex justify-center items-center gap-2 text-at-gray-500 font-medium  ">
+        {NAV_LINKS.map((navLink) => (
+          <li key={navLink.title}>
+            <a
+              className="hover:bg-at-light-500 rounded-lg px-3 py-2 items-center gap-3"
+              href={navLink.href}
+            >
+              {navLink.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50  font-medium ">
@@ -20,18 +37,7 @@ const Header = ({ toggleNav }: { toggleNav: () => void }): JSX.Element => {
                   height={32}
                 />
               </a>
-              <ul className="w-full flex justify-center items-center gap-2 text-at-gray-500 font-medium  ">
-                {NAV_LINKS.map((navLink) => (
-                  <li key={navLink.title}>
-                    <a
-                      className="hover:bg-at-light-500 rounded-lg px-3 py-2 items-center gap-3"
-                      href={navLink.href}
-                    >
-                      {navLink.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {renderNavLinks()}
             </div>
             <div className="flex ml-3 justify-between items-center flex-grow xl:hidden">
               <a href="/_" className="relative">
@@ -43,16 +49,9 @@ const Header = ({ toggleNav }: { toggleNav: () => void }): JSX.Element => {
                 />
               </a>
             </div>
-            <div className="h-full flex justify-between items-center gap-2 xl:hidden">
-              <button className=" font-bold text-white bg-at-primary border-at-primary hover:border-at-primary-700 hover:bg-at-primary-700 disabled:opacity-50 disabled:pointer-events-none rounded-lg text-sm py-1.5 px-2 flex items-center justify-center">
-                Join / Sign In
-              </button>
-            </div>
-            <div className="hidden xl:block">
-              <button className=" font-bold text-white bg-at-primary border-at-primary hover:border-at-primary-700 hover:bg-at-primary-700 disabled:opacity-50 disabled:pointer-events-none rounded-lg py-2.5 px-3 flex items-center justify-center">
-                Join / Sign In
-              </button>
-            </div>
+            <button className=" font-bold text-white bg-at-primary border-at-primary hover:border-at-primary-700 hover:bg-at-primary-700 disabled:opacity-50 disabled:pointer-events-none rounded-lg text-sm xl:text-base py-1.5 px-2 xl:py-2.5 xl:px-3 flex items-center justify-center mr-2 xl:mr-0">
+              Join / Sign In
+            </button>
           </div>
         </nav>
       </header>
