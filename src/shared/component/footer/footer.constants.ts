@@ -1,6 +1,6 @@
 import { IFooterLink } from "./footer.interface"
 
-export const SOCIALMEDIALINKS : IFooterLink[] = [
+export const SOCIAL_MEDIA_LINKS : IFooterLink[] = [
 {src: "https://view.com.au/viewstatic/lancer/_next/static/media/social-facebook.95c9cce2.svg", title:"facebook", href: "/_"},
 {src: "https://view.com.au/viewstatic/lancer/_next/static/media/social-twitter.dcd26979.svg", title:"twitter", href: "/_"},
 {src: "https://view.com.au/viewstatic/lancer/_next/static/media/social-instagram.b03aa141.svg", title:"instagram", href: "/_"},
@@ -8,7 +8,7 @@ export const SOCIALMEDIALINKS : IFooterLink[] = [
 {src: "https://view.com.au/viewstatic/lancer/_next/static/media/social-pinterest.de53db23.svg", title:"pinterest", href: "/_"},
 ]
 
-export const CONTACTLINKS : IFooterLink[] = [
+export const CONTACT_LINKS : IFooterLink[] = [
     {title: "Editorial Guidelines", href:"/_"}, 
     {title:"Agent Login", href:"/_"}, 
     {title:"About Us", href:"/_"},
@@ -16,7 +16,7 @@ export const CONTACTLINKS : IFooterLink[] = [
     {title:"FAQs", href:"/_"} 
 ]
 
-export const MOBILELINKS: IFooterLink[] = [
+export const MOBILE_LINKS: IFooterLink[] = [
     {title: "Location Profiles" , href:"/_"}, 
     {title: "Estimate" , href:"/_"} , 
     {title: "Real Estate News" , href:"/_"} , 
@@ -31,7 +31,7 @@ export const MOBILELINKS: IFooterLink[] = [
    {title:  "Sitemap" , href:"/_"}
 ]
 
-export const DESKTOPLINKS: IFooterLink[] = [
+export const DESKTOP_LINKS: IFooterLink[] = [
     {title:"Real Estate News" , href:"/_"},
     {title: "Estimate" , href:"/_"},
     {title: "Join view.com.au", href:"/_"},

@@ -1,23 +1,23 @@
 import Image from "next/image";
 import { IFooterLink } from "./footer.interface";
 import {
-  SOCIALMEDIALINKS,
-  CONTACTLINKS,
-  MOBILELINKS,
-  DESKTOPLINKS,
+  SOCIAL_MEDIA_LINKS,
+  CONTACT_LINKS,
+  MOBILE_LINKS,
+  DESKTOP_LINKS,
 } from "./footer.constants";
 import Vmg_Logo from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
-  const firstListOfDesktopLinks = DESKTOPLINKS.slice(0, 6);
-  const secondListOfDesktopLinks = DESKTOPLINKS.slice(6, 11);
-  const thirdListOfDesktopLinks = DESKTOPLINKS.slice(11, 16);
-  const fourthListOfDesktopLinks = DESKTOPLINKS.slice(16);
+  const firstListOfDesktopLinks = DESKTOP_LINKS.slice(0, 6);
+  const secondListOfDesktopLinks = DESKTOP_LINKS.slice(6, 11);
+  const thirdListOfDesktopLinks = DESKTOP_LINKS.slice(11, 16);
+  const fourthListOfDesktopLinks = DESKTOP_LINKS.slice(16);
 
   const renderSocialMediaLinks = (): JSX.Element => {
     return (
       <div className="flex gap-8 lg:gap-6">
-        {SOCIALMEDIALINKS.map((socialmedialink, index) => (
+        {SOCIAL_MEDIA_LINKS.map((socialmedialink, index) => (
           <a
             key={index}
             className="text-default hover:text-at-primary cursor-pointer text-at-gray-500"
@@ -38,7 +38,7 @@ const Footer = (): JSX.Element => {
   const renderContactLinks = (): JSX.Element => {
     return (
       <ul className="flex justify-end gap-6">
-        {CONTACTLINKS.map((contactlink) => (
+        {CONTACT_LINKS.map((contactlink) => (
           <a
             key={contactlink.title}
             className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
@@ -55,7 +55,7 @@ const Footer = (): JSX.Element => {
   const renderMobileLinks = (): JSX.Element => {
     return (
       <ul className="border-b border-at-light-500 lg:hidden grid grid-cols-2 py-6 gap-2 place-items-center">
-        {MOBILELINKS.map((mobilelink) => (
+        {MOBILE_LINKS.map((mobilelink) => (
           <li key={mobilelink.title} className="mb-2">
             <a
               href="/_"
