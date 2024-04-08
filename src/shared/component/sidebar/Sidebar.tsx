@@ -3,9 +3,6 @@ import { SIDEBAR_LINKS } from "./sidebar.constants";
 import { ISidebarLink } from "./sidebar.interface";
 
 const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
-  const firstPartOfLinks = SIDEBAR_LINKS.slice(3, 5);
-  const secondPartOfLinks = SIDEBAR_LINKS.slice(5);
-
   const renderMainLinks = () => {
     let mainLinks = SIDEBAR_LINKS.slice(0, 3);
     return (
@@ -55,9 +52,9 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
     >
       <ul className="pt-15 pb-8 mb-4">
         {renderMainLinks()}
-        {renderSidebarLinks(firstPartOfLinks)}
+        {renderSidebarLinks(SIDEBAR_LINKS.slice(3, 5))}
         <hr className="my-4 border" />
-        {renderSidebarLinks(secondPartOfLinks)}
+        {renderSidebarLinks(SIDEBAR_LINKS.slice(5))}
       </ul>
     </div>
   );
