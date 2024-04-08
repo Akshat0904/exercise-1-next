@@ -1,121 +1,107 @@
 import Image from "next/image";
+import { IFooterLink } from "./footer.interface";
 import {
   SOCIALMEDIALINKS,
   CONTACTLINKS,
   MOBILELINKS,
-  FIRSTDESKTOPLINKS,
-  SECONDDESKOTOPLINKS,
-  THIRDDESKTOPLINKS,
-  FOURTHDESKTOPLINKS,
+  DESKTOPLINKS,
 } from "./footer.constants";
-import VMG_LOGO from "@/public/images/VMG_logo.svg";
+import Vmg_Logo from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
-  return (
-    <footer className="px-5 lg:max-w-1200 lg:mx-auto lg:px-0">
-      <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
-        <div className="flex gap-8 lg:gap-6">
-          {SOCIALMEDIALINKS.map((socialmedialink, index) => (
-            <a
-              key={index}
-              className="text-default hover:text-at-primary cursor-pointer text-at-gray-500"
-              href="/_"
-            >
-              <Image
-                src={socialmedialink.src}
-                alt={socialmedialink.alt}
-                width={24}
-                height={24}
-              />
-            </a>
-          ))}
-        </div>
-        <div className="hidden lg:block">
-          <ul className="flex justify-end gap-6">
-            {CONTACTLINKS.map((contactlink) => (
-              <a
-                key={contactlink}
-                className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-                href="/_"
-                aria-label={contactlink}
-              >
-                {contactlink}
-              </a>
-            ))}
-          </ul>
-        </div>
+  const firstListOfDesktopLinks = DESKTOPLINKS.slice(0, 6);
+  const secondListOfDesktopLinks = DESKTOPLINKS.slice(6, 11);
+  const thirdListOfDesktopLinks = DESKTOPLINKS.slice(11, 16);
+  const fourthListOfDesktopLinks = DESKTOPLINKS.slice(16);
+
+  const renderSocialMediaLinks = (): JSX.Element => {
+    return (
+      <div className="flex gap-8 lg:gap-6">
+        {SOCIALMEDIALINKS.map((socialmedialink, index) => (
+          <a
+            key={index}
+            className="text-default hover:text-at-primary cursor-pointer text-at-gray-500"
+            href="/_"
+          >
+            <Image
+              src={socialmedialink.src!}
+              alt={socialmedialink.title}
+              width={24}
+              height={24}
+            />
+          </a>
+        ))}
       </div>
+    );
+  };
+
+  const renderContactLinks = (): JSX.Element => {
+    return (
+      <ul className="flex justify-end gap-6">
+        {CONTACTLINKS.map((contactlink) => (
+          <a
+            key={contactlink.title}
+            className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
+            href="/_"
+            aria-label={contactlink.title}
+          >
+            {contactlink.title}
+          </a>
+        ))}
+      </ul>
+    );
+  };
+
+  const renderMobileLinks = (): JSX.Element => {
+    return (
       <ul className="border-b border-at-light-500 lg:hidden grid grid-cols-2 py-6 gap-2 place-items-center">
         {MOBILELINKS.map((mobilelink) => (
-          <li key={mobilelink} className="mb-2">
+          <li key={mobilelink.title} className="mb-2">
             <a
               href="/_"
               className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-              aria-label={mobilelink}
+              aria-label={mobilelink.title}
             >
-              {mobilelink}
+              {mobilelink.title}
             </a>
           </li>
         ))}
       </ul>
+    );
+  };
+
+  const renderDesktopLinks = (desktopLinks: IFooterLink[]): JSX.Element => {
+    return (
+      <ul className="space-y-4">
+        {desktopLinks.map((firstSectionLink) => (
+          <li key={firstSectionLink.title}>
+            {" "}
+            <a
+              href="/_"
+              className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
+              aria-label={firstSectionLink.title}
+            >
+              {firstSectionLink.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  return (
+    <footer className="px-5 lg:max-w-1200 lg:mx-auto lg:px-0">
+      <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
+        {renderSocialMediaLinks()}
+        <div className="hidden lg:block">{renderContactLinks()}</div>
+      </div>
+      {renderMobileLinks()}
       <div className="py-6 border-b border-at-light-500 hidden lg:flex justify-center">
         <div className="text-at-gray-700 pr-5 text-base grid grid-cols-4 w-full text-left">
-          <ul className="space-y-4">
-            {FIRSTDESKTOPLINKS.map((firstSectionLink) => (
-              <li key={firstSectionLink}>
-                {" "}
-                <a
-                  href="/_"
-                  className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-                  aria-label={firstSectionLink}
-                >
-                  {firstSectionLink}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-4">
-            {SECONDDESKOTOPLINKS.map((secondSectionLink) => (
-              <li key={secondSectionLink}>
-                {" "}
-                <a
-                  href="/_"
-                  className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-                  aria-label={secondSectionLink}
-                >
-                  {secondSectionLink}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-4">
-            {THIRDDESKTOPLINKS.map((thirdSectionLink) => (
-              <li key={thirdSectionLink}>
-                {" "}
-                <a
-                  href="/_"
-                  className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-                  aria-label={thirdSectionLink}
-                >
-                  {thirdSectionLink}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-4">
-            {FOURTHDESKTOPLINKS.map((fourthSectionLink) => (
-              <li key={fourthSectionLink}>
-                {" "}
-                <a
-                  href="/_"
-                  className="text-base text-at-gray-700 hover:underline hover:text-at-primary cursor-pointer"
-                  aria-label={fourthSectionLink}
-                >
-                  {fourthSectionLink}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {renderDesktopLinks(firstListOfDesktopLinks)}
+          {renderDesktopLinks(secondListOfDesktopLinks)}
+          {renderDesktopLinks(thirdListOfDesktopLinks)}
+          {renderDesktopLinks(fourthListOfDesktopLinks)}
         </div>
       </div>
       <div className="flex flex-col lg:flex-row justify-between pt-8 items-center">
@@ -141,7 +127,7 @@ const Footer = (): JSX.Element => {
             className="text-default cursor-pointer text-xl rounded-full lg:pt-1 w-110 h-7"
           >
             <Image
-              src={VMG_LOGO}
+              src={Vmg_Logo}
               alt="view media group logo"
               width={110}
               height={24.5}
