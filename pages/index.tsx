@@ -1,12 +1,11 @@
-import Header from "@/src/shared/component/header/Header";
-import Footer from "@/src/shared/component/footer/Footer";
+import Layout from "@/src/shared/component/layout/Layout";
 
 const HomePage = (): JSX.Element => {
   return (
     <>
-      <Header />
-      <p>Main section</p>
-      <Footer />
+      <Layout>
+        <p>Main section</p>
+      </Layout>
     </>
   );
 };

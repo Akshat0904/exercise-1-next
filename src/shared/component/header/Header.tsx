@@ -1,20 +1,14 @@
 import Image from "next/image";
-import { NAVLINKS, SIDEBARLINKS } from "./header.constants";
-import { useState } from "react";
+import { NAV_LINKS } from "./header.constants";
 import Hamburger from "hamburger-react";
 
-const Header = (): JSX.Element => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
+const Header = ({ toggleNav }: { toggleNav: () => void }): JSX.Element => {
   return (
     <>
       <header className="sticky top-0 z-50  font-medium ">
         <nav className="border-b bg-white border-at-light-500 h-15 xl:h-16 ">
           <div className="flex h-15 md:h-auto pl-0.5 pr-1.5 xl:pl-0 xl:pr-0 justify-center items-center relative xl:static xl:bottom-0 max-w-1200 m-auto">
-            <button
-              className="flex xl:hidden relative"
-              onClick={() => setIsNavOpen((prev) => !prev)}
-            >
+            <button className="flex xl:hidden relative" onClick={toggleNav}>
               <Hamburger direction="right" color="#333333" size={25} />
             </button>
             <div className="hidden h-16 xl:flex flex-grow items-center">
@@ -27,10 +21,13 @@ const Header = (): JSX.Element => {
                 />
               </a>
               <ul className="w-full flex justify-center items-center gap-2 text-at-gray-500 font-medium  ">
-                {NAVLINKS.map((navlink) => (
-                  <li key={navlink}>
-                    <a className="hover:bg-at-light-500 rounded-lg px-3 py-2 items-center gap-3">
-                      {navlink}
+                {NAV_LINKS.map((navLink) => (
+                  <li key={navLink.title}>
+                    <a
+                      className="hover:bg-at-light-500 rounded-lg px-3 py-2 items-center gap-3"
+                      href={navLink.href}
+                    >
+                      {navLink.title}
                     </a>
                   </li>
                 ))}
@@ -59,79 +56,6 @@ const Header = (): JSX.Element => {
           </div>
         </nav>
       </header>
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
-          isNavOpen ? "translate-x-0" : "-translate-x-full"
-        } `}
-      >
-        <main className="pt-15 pb-4">
-          <ul className="pb-4 mb-4">
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Buy
-              </a>
-            </li>
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Rent
-              </a>
-            </li>
-            <li className="flex items-baseline px-5 py-3">
-              <a href="/_" className="font-medium text-2xl text-black">
-                Sold
-              </a>
-            </li>
-            <li className="flex items-baseline py-1 px-3 ">
-              <a
-                href="/_"
-                className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-              >
-                <Image
-                  src="https://view.com.au/viewstatic/lancer/_next/static/media/nav-rocket.15d190c5.svg"
-                  alt="Icon-1"
-                  width={20}
-                  height={20}
-                />
-                <span>New Developments</span>
-              </a>
-            </li>
-            <li className="flex items-baseline py-1 px-3 ">
-              <a
-                href="/_"
-                className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-              >
-                <Image
-                  src="https://view.com.au/viewstatic/lancer/_next/static/media/nav-scales.37599d36.svg"
-                  alt="Icon-2"
-                  width={20}
-                  height={20}
-                />
-                <span>Price Estimate</span>
-              </a>
-            </li>
-            <hr className="my-4 border" />
-            {SIDEBARLINKS.map((sidebarlink) => (
-              <li
-                key={sidebarlink.title}
-                className="flex items-baseline py-1 px-3 "
-              >
-                <a
-                  href="/_"
-                  className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
-                >
-                  <Image
-                    src={sidebarlink.src}
-                    alt="Icon-2"
-                    width={20}
-                    height={20}
-                  />
-                  <span>{sidebarlink.title}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </main>
-      </div>
     </>
   );
 };
