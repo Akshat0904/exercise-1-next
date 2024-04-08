@@ -53,14 +53,12 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
         isNavOpen ? "translate-x-0" : "-translate-x-full"
       } `}
     >
-      <div className="pt-15 pb-4">
-        <ul className="pb-4 mb-4">
-          {renderMainLinks()}
-          {renderSidebarLinks(firstPartOfLinks)}
-          <hr className="my-4 border" />
-          {renderSidebarLinks(secondPartOfLinks)}
-        </ul>
-      </div>
+      <ul className="pt-15 pb-8 mb-4">
+        {renderMainLinks()}
+        {renderSidebarLinks(firstPartOfLinks)}
+        <hr className="my-4 border" />
+        {renderSidebarLinks(secondPartOfLinks)}
+      </ul>
     </div>
   );
 };

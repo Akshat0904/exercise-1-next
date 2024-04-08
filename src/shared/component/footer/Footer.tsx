@@ -9,11 +9,6 @@ import {
 import Vmg_Logo from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
-  const firstListOfDesktopLinks = DESKTOP_LINKS.slice(0, 6);
-  const secondListOfDesktopLinks = DESKTOP_LINKS.slice(6, 11);
-  const thirdListOfDesktopLinks = DESKTOP_LINKS.slice(11, 16);
-  const fourthListOfDesktopLinks = DESKTOP_LINKS.slice(16);
-
   const renderSocialMediaLinks = (): JSX.Element => {
     return (
       <div className="flex gap-8 lg:gap-6">
@@ -37,7 +32,7 @@ const Footer = (): JSX.Element => {
 
   const renderContactLinks = (): JSX.Element => {
     return (
-      <ul className="flex justify-end gap-6">
+      <ul className=" hidden lg:flex justify-end gap-6  ">
         {CONTACT_LINKS.map((contactlink) => (
           <a
             key={contactlink.title}
@@ -93,31 +88,29 @@ const Footer = (): JSX.Element => {
     <footer className="px-5 lg:max-w-1200 lg:mx-auto  lg:px-0">
       <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
         {renderSocialMediaLinks()}
-        <div className="hidden lg:block">{renderContactLinks()}</div>
+        {renderContactLinks()}
       </div>
       {renderMobileLinks()}
       <div className="py-6 border-b border-at-light-500 hidden lg:flex justify-center">
         <div className="text-at-gray-700 pr-5 text-base grid grid-cols-4 w-full text-left">
-          {renderDesktopLinks(firstListOfDesktopLinks)}
-          {renderDesktopLinks(secondListOfDesktopLinks)}
-          {renderDesktopLinks(thirdListOfDesktopLinks)}
-          {renderDesktopLinks(fourthListOfDesktopLinks)}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(0, 6))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(6, 11))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(11, 16))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(16))}
         </div>
       </div>
       <div className="flex flex-col lg:flex-row justify-between pt-8 items-center">
-        <div className="flex flex-col lg:flex-row justify-center items-center">
-          <a
-            href="/_"
-            className="text-default cursor-pointer text-xl rounded-full w-24 lg:pb-0"
-          >
-            <Image
-              src="https://view.com.au/viewstatic/lancer/_next/static/media/viewLogo.8f31e2e5.svg"
-              alt="view.com.au logo"
-              width={96}
-              height={24.5}
-            />
-          </a>
-        </div>
+        <a
+          href="/_"
+          className="text-default cursor-pointer text-xl rounded-full w-24 lg:pb-0"
+        >
+          <Image
+            src="https://view.com.au/viewstatic/lancer/_next/static/media/viewLogo.8f31e2e5.svg"
+            alt="view.com.au logo"
+            width={96}
+            height={24.5}
+          />
+        </a>
         <div className="flex flex-col items-center gap-1 lg:flex-row lg:gap-2 text-at-gray-700 text-center lg:text-end">
           <p className="text-sm font-normal lg:w-32 lg:leading-4">
             Part of View Media Group (VMG)
