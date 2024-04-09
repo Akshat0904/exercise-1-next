@@ -120,7 +120,7 @@ const Footer = (): JSX.Element => {
             className="text-default cursor-pointer text-xl rounded-full lg:pt-1 w-110 h-7"
           >
             <Image
-              src={Vmg_Logo}
+              src="https://resi.uatz.view.com.au/viewstatic/lancer/_next/static/media/VMG_logo.24597d8a.png"
               alt="view media group logo"
               width={110}
               height={24.5}

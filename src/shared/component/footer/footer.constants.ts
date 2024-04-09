@@ -21,14 +21,14 @@ export const MOBILE_LINKS: IFooterLink[] = [
     {title: "Estimate" , href:"/_"} , 
     {title: "Real Estate News" , href:"/_"} , 
     {title: "Real Estate Advice" , href:"/_"}, 
-   {title:"Auction Results" , href:"/_"} , 
-   {title: "Agent Login" , href:"/_"} , 
-   {title: "About Us" , href:"/_"} ,
-   {title: "Contact" , href:"/_"}, 
-   {title: "FAQs" , href:"/_"} , 
-   {title:  "Terms & Conditions" , href:"/_"} , 
-   {title:  "Privacy Policy" , href:"/_"}, 
-   {title:  "Sitemap" , href:"/_"}
+    {title:"Auction Results" , href:"/_"} , 
+    {title: "Agent Login" , href:"/_"} , 
+    {title: "About Us" , href:"/_"} ,
+    {title: "Contact" , href:"/_"}, 
+    {title: "FAQs" , href:"/_"} , 
+    {title:  "Terms & Conditions" , href:"/_"} , 
+    {title:  "Privacy Policy" , href:"/_"}, 
+    {title:  "Sitemap" , href:"/_"}
 ]
 
 export const DESKTOP_LINKS: IFooterLink[] = [
