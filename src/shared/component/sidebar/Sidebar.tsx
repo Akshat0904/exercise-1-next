@@ -30,12 +30,14 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
               href="/_"
               className="font-medium text-base text-at-gray-500 flex items-center gap-3 py-2 relative  "
             >
-              <Image
-                src={sidebarlink.src!}
-                alt="Icon-2"
-                width={20}
-                height={20}
-              />
+              {sidebarlink.src && (
+                <Image
+                  src={sidebarlink.src}
+                  alt="Icon-2"
+                  width={20}
+                  height={20}
+                />
+              )}
               <span>{sidebarlink.title}</span>
             </a>
           </li>
@@ -46,7 +48,7 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
+      className={`fixed top-0 block xl:hidden left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
         isNavOpen ? "translate-x-0" : "-translate-x-full"
       } `}
     >
