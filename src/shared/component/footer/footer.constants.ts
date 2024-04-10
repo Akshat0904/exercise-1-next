@@ -32,7 +32,7 @@ export const MOBILE_LINKS: IFooterLink[] = [
 ]
 
 export const DESKTOP_LINKS: IFooterLink[] = [
-    {title:"Real Estate News" , href:"/_"},
+    {title: "Real Estate News" , href:"/_"},
     {title: "Estimate" , href:"/_"},
     {title: "Join view.com.au", href:"/_"},
     {title: "Real Estate Apps", href:"/_"},

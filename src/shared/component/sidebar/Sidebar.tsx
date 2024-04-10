@@ -48,7 +48,7 @@ const Sidebar = ({ isNavOpen }: { isNavOpen: boolean }): JSX.Element => {
 
   return (
     <div
-      className={`fixed top-0 block xl:hidden left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
+      className={`fixed top-0 block z-40 xl:hidden left-0 w-full h-full bg-white ease-in-out duration-200 transform ${
         isNavOpen ? "translate-x-0" : "-translate-x-full"
       } `}
     >
