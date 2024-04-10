@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import DownloadApp from "../download-app/DownloadApp";
 
 interface IProps {
   parentDivClass?: string;
@@ -19,7 +18,7 @@ const HeroSection: React.FC<IProps> = ({
   return (
     <div
       className={
-        "p-6 md:px-16 md:py-12 bg-at-primary-50 text-at-gray-500 rounded-xl w-full md:pr-72 relative " +
+        "p-6 md:px-16 md:py-12 z-0 bg-at-primary-50 text-at-gray-500 rounded-xl w-full md:pr-72 relative " +
         parentDivClass
       }
     >

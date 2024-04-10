@@ -64,7 +64,7 @@ const MobilePage = (): JSX.Element => {
   return (
     <Layout>
       <main>
-        <section className="p-4 mx-auto xl:p-0 xl:py-8 max-w-1200 ">
+        <section className="p-4 mx-auto z-0 xl:p-0 xl:py-8 max-w-1200 ">
           {renderHeroSection()}
           <div className="mb-16 md:mb-6 lg:flex lg:items-center lg:h-500">
             <div className="flex flex-col items-center lg:items-start lg:w-1/2 lg:pl-75 lg:pr-8">

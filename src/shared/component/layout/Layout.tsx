@@ -9,7 +9,7 @@ export interface IProps {
   children?: ReactNode;
 }
 
-const Layout: React.FC<IProps> = ({ children }) => {
+const Layout: React.FC<IProps> = ({ children }): JSX.Element => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav: () => void = () => {

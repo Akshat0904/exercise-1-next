@@ -30,7 +30,9 @@ const config: Config = {
         'at-gray-700': '#666666',
         'at-primary': '#0073CF',
         'at-primary-700': '#0464B0',
-        'at-primary-50': '#E8F4FD'
+        'at-primary-50': '#E8F4FD',
+        'at-red-500': '#DB4444',
+        'at-light-700': '#E6E6E6'
       }
     },
     fontFamily : {
@@ -38,6 +40,7 @@ const config: Config = {
       "golos": ["Golos Text", "sans-serif"]
     },
     fontSize: {
+      xs: ['12px', '16px'],
       sm: ['14px', '20px'],
       base: ['16px', '24px'],
       lg: ['20px', '28px'],
