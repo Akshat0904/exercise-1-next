@@ -4,17 +4,15 @@ import HeroSection from "@/src/shared/component/hero-section/HeroSection";
 import DownloadApp from "@/src/shared/component/download-app/DownloadApp";
 
 const MobilePage = (): JSX.Element => {
-  //   const imageLoader = ({ src, width, quality }) => {
-  //     return "";
-  //   };
-
   return (
     <Layout>
       <main>
         <section className="p-4 mx-auto xl:p-0 xl:py-8 max-w-1200 ">
           <HeroSection
+            divClass="mb-16"
             heading="Explore properties wherever and whenever you like."
             subHeading="Available on iOS and Android, the resi.uatz.view.com.au app helps you keep on top of your property search with the latest real estate listings for sale, rent, recently sold, as well as unlisted properties."
+            subHeadingClass="lg:text-lg"
           >
             <div className="mt-6 lg:mt-12">
               <DownloadApp />

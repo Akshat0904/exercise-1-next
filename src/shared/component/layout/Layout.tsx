@@ -6,7 +6,7 @@ import Sidebar from "../sidebar/Sidebar";
 import { ReactNode } from "react";
 
 export interface IProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Layout: React.FC<IProps> = ({ children }) => {
