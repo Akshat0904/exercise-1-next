@@ -2,6 +2,9 @@ import Layout from "@/src/shared/component/layout/Layout";
 import HeroSection from "@/src/shared/component/hero-section/HeroSection";
 import Image from "next/image";
 import RedeemForm from "@/src/module/conveyancing/component/RedeemForm";
+import Faq from "@/src/module/conveyancing/component/Faq";
+import Review from "@/src/module/conveyancing/component/Review";
+import ShowMore from "@/src/shared/component/showmore/ShowMore";
 
 const ConveyancingPage = () => {
   const renderHeroSection = (): JSX.Element => {
@@ -95,16 +98,51 @@ const ConveyancingPage = () => {
 
   return (
     <Layout>
-      <main>
-        <section className="p-4 mx-auto xl:p-0 xl:py-8 max-w-1200 ">
+      <main className="max-w-1200 mx-auto">
+        <section className="p-4 mx-auto xl:p-0 xl:pt-8  ">
           {renderHeroSection()}
-          <section className=" lg:relative lg:gap-4">
-            <div className="lg:w-3/5">
-              {renderIFrame()}
-              <RedeemForm />
-              {renderOfferDetails()}
-            </div>
-          </section>
+        </section>
+        <section className="lg:relative lg:gap-4  mx-auto px-4 xl:px-0 ">
+          <div className="lg:w-3/5">
+            {renderIFrame()}
+            <RedeemForm />
+            {renderOfferDetails()}
+          </div>
+        </section>
+        <section className="w-full  mx-auto px-4 pb-4 xl:pb-8 xl:px-0">
+          <Faq />
+        </section>
+        <section className="w-full mx-auto bg-at-light-200 lg:rounded-xl mb-8 lg:mb-14 font-dmSans">
+          <div className="flex flex-col">
+            <h3 className="text-base font-bold mx-4 mt-6 mb-4 lg:pl-10 lg:mx-0  lg:text-xl lg:mt-10 lg:mb-6">
+              What Settle Easy customers are saying...
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 pb-6 lg:px-10 lg:pb-10">
+            <Review week={4} name="Jake Curtis">
+              <ShowMore
+                lessHeight={75}
+                moreHeight={96}
+                content="Marie was excellent, very prompt, clear and friendly. Would recommend
+        for first home buyers who want to be kept in the loop and shown all the
+        steps."
+              />
+            </Review>
+            <Review week={2} name="Brendan Freeman">
+              <ShowMore
+                lessHeight={75}
+                moreHeight={360}
+                content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
+              />
+            </Review>
+            <Review week={2} name="Emma Gerts">
+              <ShowMore
+                lessHeight={75}
+                moreHeight={360}
+                content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
+              />
+            </Review>
+          </div>
         </section>
       </main>
     </Layout>

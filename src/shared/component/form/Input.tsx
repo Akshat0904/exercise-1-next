@@ -7,6 +7,7 @@ export interface IInputValues {
   emailId: string;
   contactNum: string;
   state: string;
+  message?: string;
 }
 
 interface IProps {

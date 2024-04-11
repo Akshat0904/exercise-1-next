@@ -1,7 +1,7 @@
 import Input from "@/src/shared/component/form/Input";
 import Select from "@/src/shared/component/form/Select";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
+// import { DevTool } from "@hookform/devtools";
 import { IInputValues } from "@/src/shared/component/form/Input";
 
 const RedeemForm = (): JSX.Element => {
@@ -121,12 +121,12 @@ const RedeemForm = (): JSX.Element => {
           </p>
         )}
         <div className="p-1 mb-4 lg:mb-6 flex flex-col">
-          <label htmlFor="" className="font-medium text-sm">
+          <label htmlFor="message" className="font-medium text-sm">
             Comments or message
           </label>
           <textarea
-            name="message"
             id="message"
+            {...register("message")}
             placeholder="Add a message"
             className="p-2 border rounded-lg border-at-light-700 focus-within:border-at-primary outline-none ring-0 focus:ring-0 focus:outline-none "
           ></textarea>
@@ -161,7 +161,7 @@ const RedeemForm = (): JSX.Element => {
           </a>
         </p>
       </form>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </div>
   );
 };

@@ -6,7 +6,6 @@ import {
   MOBILE_LINKS,
   DESKTOP_LINKS,
 } from "./footer.constants";
-import Vmg_Logo from "@/public/images/VMG_logo.svg";
 
 const Footer = (): JSX.Element => {
   const renderSocialMediaLinks = (): JSX.Element => {
@@ -84,21 +83,8 @@ const Footer = (): JSX.Element => {
     );
   };
 
-  return (
-    <footer className="px-5  lg:max-w-1200 lg:mx-auto  lg:px-0">
-      <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
-        {renderSocialMediaLinks()}
-        {renderContactLinks()}
-      </div>
-      {renderMobileLinks()}
-      <div className="py-6 border-b border-at-light-500 hidden lg:flex justify-center">
-        <div className="text-at-gray-700 pr-5 text-base grid grid-cols-4 w-full text-left">
-          {renderDesktopLinks(DESKTOP_LINKS.slice(0, 6))}
-          {renderDesktopLinks(DESKTOP_LINKS.slice(6, 11))}
-          {renderDesktopLinks(DESKTOP_LINKS.slice(11, 16))}
-          {renderDesktopLinks(DESKTOP_LINKS.slice(16))}
-        </div>
-      </div>
+  const renderCompanyLogoFooter = (): JSX.Element => {
+    return (
       <div className="flex flex-col lg:flex-row justify-between pt-8 items-center">
         <a
           href="/_"
@@ -128,6 +114,25 @@ const Footer = (): JSX.Element => {
           </a>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <footer className="px-5  lg:max-w-1200 lg:mx-auto  lg:px-0">
+      <div className="py-6 border-b border-at-light-500 flex justify-center items-center lg:justify-between">
+        {renderSocialMediaLinks()}
+        {renderContactLinks()}
+      </div>
+      {renderMobileLinks()}
+      <div className="py-6 border-b border-at-light-500 hidden lg:flex justify-center">
+        <div className="text-at-gray-700 pr-5 text-base grid grid-cols-4 w-full text-left">
+          {renderDesktopLinks(DESKTOP_LINKS.slice(0, 6))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(6, 11))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(11, 16))}
+          {renderDesktopLinks(DESKTOP_LINKS.slice(16))}
+        </div>
+      </div>
+      {renderCompanyLogoFooter()}
       <p className="text-sm font-normal py-2 text-center lg:text-left">
         Copyright © 2001-2024 | view.com.au Pty Ltd
       </p>
