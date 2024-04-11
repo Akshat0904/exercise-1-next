@@ -1,15 +1,20 @@
 import Input from "@/src/shared/component/form/Input";
 import Select from "@/src/shared/component/form/Select";
 import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
+import { IInputValues } from "@/src/shared/component/form/Input";
 
 const RedeemForm = (): JSX.Element => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    control,
+  } = useForm<IInputValues>();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: IInputValues) => {
+    console.log("submit", data);
+  };
 
   return (
     <div className="pb-6 rounded-xl font-dmSans text-at lg:right-0 lg:top-0 lg:absolute lg:w-38% border border-at-light-500">
@@ -22,23 +27,99 @@ const RedeemForm = (): JSX.Element => {
           type="text"
           id="firstName"
           label="First name"
+          inputClass={
+            (errors.firstName &&
+              "focus-within:border-at-red-500   border-at-red-500") ||
+            ""
+          }
           require
-          {...register("firstName", { required: true })}
+          register={register}
         />
         {errors.firstName?.type === "required" && (
-          <p role="alert" className="text-sm text-at-red-500">
-            First name is required
+          <p role="alert" className="text-xs -mt-4 text-at-red-500">
+            * First name is required
           </p>
         )}
-        <Input type="text" id="lastName" label="Last Name" require />
-        <Input type="email" id="emailId" label="Email" require />
-        <Input type="number" id="contactNum" label="Phone" require />
+        <Input
+          type="text"
+          id="lastName"
+          label="Last Name"
+          inputClass={
+            (errors.lastName &&
+              "focus-within:border-at-red-500   border-at-red-500") ||
+            ""
+          }
+          require
+          register={register}
+        />
+        {errors.lastName?.type === "required" && (
+          <p role="alert" className="text-xs -mt-4 text-at-red-500">
+            * Last name is required
+          </p>
+        )}
+        <Input
+          type="email"
+          id="emailId"
+          label="Email"
+          inputClass={
+            (errors.emailId &&
+              "focus-within:border-at-red-500   border-at-red-500") ||
+            ""
+          }
+          require
+          register={register}
+        />{" "}
+        {(errors.emailId?.type === "required" && (
+          <p role="alert" className="text-xs -mt-4 text-at-red-500">
+            * Email Id is required
+          </p>
+        )) ||
+          (errors.emailId?.type === "pattern" && (
+            <p role="alert" className="text-xs -mt-4 text-at-red-500">
+              * Email Id is not valid
+            </p>
+          ))}
+        <Input
+          type="number"
+          id="contactNum"
+          label="Phone"
+          inputClass={
+            (errors.contactNum &&
+              "focus-within:border-at-red-500  border-at-red-500") ||
+            ""
+          }
+          require
+          register={register}
+        />
+        {(errors.contactNum?.type === "required" && (
+          <p role="alert" className="text-xs -mt-4 text-at-red-500">
+            * Contact number is required
+          </p>
+        )) ||
+          ((errors.contactNum?.type === "minLength" ||
+            errors.contactNum?.type === "maxLength") && (
+            <p role="alert" className="text-xs -mt-4 text-at-red-500">
+              * Contact number must be 10 digits
+            </p>
+          ))}
         <Select
           id="state"
           label="state"
+          require
+          inputClass={
+            (errors.state &&
+              "focus-within:border-at-red-500 border-at-red-500") ||
+            " border-at-light-700 focus-within:border-at-primary"
+          }
+          register={register}
           placeholder="Select your state"
           optionValues={["VIC", "NSW", "QLD"]}
         />
+        {errors.state?.type === "required" && (
+          <p role="alert" className="text-xs -mt-4 text-at-red-500">
+            * Please select your state
+          </p>
+        )}
         <div className="p-1 mb-4 lg:mb-6 flex flex-col">
           <label htmlFor="" className="font-medium text-sm">
             Comments or message
@@ -80,6 +161,7 @@ const RedeemForm = (): JSX.Element => {
           </a>
         </p>
       </form>
+      <DevTool control={control} />
     </div>
   );
 };
