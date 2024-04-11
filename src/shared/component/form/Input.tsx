@@ -28,7 +28,7 @@ const Input: React.FC<IProps> = ({
   inputClass,
   register,
   ...props
-}) => {
+}): JSX.Element => {
   return (
     <div className="mb-4 font-dmSans text-at-gray-500">
       {label && (
