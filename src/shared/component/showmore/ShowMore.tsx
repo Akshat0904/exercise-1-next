@@ -1,12 +1,16 @@
 import { useState } from "react";
 
 interface IProps {
-  moreHeight: number;
-  lessHeight: number;
+  expandHeight: number;
+  collapseHeight: number;
   content: string;
 }
 
-const ShowMore = ({ moreHeight, lessHeight, content }: IProps): JSX.Element => {
+const ShowMore = ({
+  expandHeight,
+  collapseHeight,
+  content,
+}: IProps): JSX.Element => {
   const [showMore, setShowMore] = useState(false);
 
   const toggleShowMore = (): void => {
@@ -16,8 +20,10 @@ const ShowMore = ({ moreHeight, lessHeight, content }: IProps): JSX.Element => {
   return (
     <div className="font-dmSans">
       <p
-        className="overflow-hidden leading-6 transition-all duration-500"
-        style={{ height: showMore ? `${moreHeight}px` : `${lessHeight}px` }}
+        className="overflow-hidden transition-all duration-500 ease-in-out"
+        style={{
+          maxHeight: showMore ? `${expandHeight}px` : `${collapseHeight}px`,
+        }}
       >
         {content}
       </p>

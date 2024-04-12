@@ -96,6 +96,36 @@ const ConveyancingPage = () => {
     );
   };
 
+  const renderReviews = (): JSX.Element => {
+    return (
+      <>
+        <Review week={4} name="Jake Curtis">
+          <ShowMore
+            collapseHeight={75}
+            expandHeight={96}
+            content="Marie was excellent, very prompt, clear and friendly. Would recommend
+for first home buyers who want to be kept in the loop and shown all the
+steps."
+          />
+        </Review>
+        <Review week={2} name="Brendan Freeman">
+          <ShowMore
+            collapseHeight={75}
+            expandHeight={360}
+            content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
+          />
+        </Review>
+        <Review week={2} name="Emma Gerts">
+          <ShowMore
+            collapseHeight={75}
+            expandHeight={360}
+            content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
+          />
+        </Review>
+      </>
+    );
+  };
+
   return (
     <Layout>
       <main className="max-w-1200 mx-auto">
@@ -119,29 +149,7 @@ const ConveyancingPage = () => {
             </h3>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-4 pb-6 lg:px-10 lg:pb-10">
-            <Review week={4} name="Jake Curtis">
-              <ShowMore
-                lessHeight={75}
-                moreHeight={96}
-                content="Marie was excellent, very prompt, clear and friendly. Would recommend
-        for first home buyers who want to be kept in the loop and shown all the
-        steps."
-              />
-            </Review>
-            <Review week={2} name="Brendan Freeman">
-              <ShowMore
-                lessHeight={75}
-                moreHeight={360}
-                content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
-              />
-            </Review>
-            <Review week={2} name="Emma Gerts">
-              <ShowMore
-                lessHeight={75}
-                moreHeight={360}
-                content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
-              />
-            </Review>
+            {renderReviews()}
           </div>
         </section>
       </main>
