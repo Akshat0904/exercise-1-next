@@ -1,6 +1,10 @@
-import { IFaq } from "./conveyancing.interface";
+import { ReactNode } from "react";
 import Accordion from "@/src/shared/component/accordian/Accordion";
 
+export interface IFaq {
+  title: string;
+  description: string | ReactNode;
+}
 export const FAQ_DETAILS: IFaq[] = [
   {
     title: "What is conveyancing?",
