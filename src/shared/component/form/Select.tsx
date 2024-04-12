@@ -1,11 +1,15 @@
 import React from "react";
+import { UseFormRegister } from "react-hook-form";
+import { IInputValues } from "./Input";
 
 interface IProps {
-  id: string;
+  id: keyof IInputValues;
   placeholder?: string;
   label?: string;
   optionValues: string[];
+  inputClass?: string;
   require?: boolean;
+  register: UseFormRegister<IInputValues>;
 }
 
 const Select = ({
@@ -14,6 +18,8 @@ const Select = ({
   label,
   placeholder,
   require,
+  inputClass,
+  register,
 }: IProps): JSX.Element => {
   return (
     <div className="p-1 mb-4 font-dmSans text-at-gray-500">
@@ -24,11 +30,18 @@ const Select = ({
         </label>
       )}
       <select
-        name={id}
         id={id}
-        className="p-2 border bg-white rounded-lg border-at-light-700 focus-within:border-at-primary w-full outline-none ring-0 focus:ring-0 focus:outline-none"
+        {...register(id, { required: true })}
+        className={
+          "p-2 border bg-white rounded-lg w-full outline-none ring-0 focus:ring-0 focus:outline-none" +
+          inputClass
+        }
       >
-        {placeholder && <option value={placeholder}>{placeholder}</option>}
+        {placeholder && (
+          <option disabled selected value="">
+            {placeholder}
+          </option>
+        )}
         {optionValues.map((optionValue) => (
           <option key={optionValue} value={optionValue}>
             {optionValue}

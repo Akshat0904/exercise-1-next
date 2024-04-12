@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Layout from "@/src/shared/component/layout/Layout";
 import HeroSection from "@/src/shared/component/hero-section/HeroSection";
-import DownloadApp from "@/src/shared/component/download-app/DownloadApp";
+import DownloadApp from "@/src/module/mobile/component/DownloadApp";
 
 const MobilePage = (): JSX.Element => {
   const renderHeroSection = (): JSX.Element => {

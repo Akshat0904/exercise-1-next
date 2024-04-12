@@ -32,7 +32,8 @@ const config: Config = {
         'at-primary-700': '#0464B0',
         'at-primary-50': '#E8F4FD',
         'at-red-500': '#DB4444',
-        'at-light-700': '#E6E6E6'
+        'at-light-700': '#E6E6E6',
+        'at-light-200': '#F6F6F6'
       }
     },
     fontFamily : {
