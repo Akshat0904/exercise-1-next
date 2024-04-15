@@ -3,6 +3,7 @@ import Select from "@/src/shared/component/form/Select";
 import { useForm } from "react-hook-form";
 // import { DevTool } from "@hookform/devtools";
 import { IInputValues } from "@/src/shared/component/form/Input";
+import Button from "@/src/shared/component/button/Button";
 
 const RedeemForm = (): JSX.Element => {
   const {
@@ -131,7 +132,7 @@ const RedeemForm = (): JSX.Element => {
             className="p-2 border rounded-lg border-at-light-700 focus-within:border-at-primary outline-none ring-0 focus:ring-0 focus:outline-none "
           ></textarea>
         </div>
-        <button className="px-4 py-2 mb-3 font-bold text-white bg-at-primary border-at-primary hover:border-at-primary-700 hover:bg-at-primary-700 active:bg-at-primary-700 w-full disabled:opacity-50 disabled:pointer-events-none rounded-lg flex items-center justify-center">
+        <Button buttonClass="w-full font-bold text-white bg-at-primary border-at-primary hover:border-at-primary-700 hover:bg-at-primary-700 active:bg-at-primary-700">
           <svg
             width="20"
             height="20"
@@ -149,7 +150,7 @@ const RedeemForm = (): JSX.Element => {
             ></path>
           </svg>
           <span className="text-base font-bold pl-2">Redeem Offer</span>
-        </button>
+        </Button>
         <p className="text-xs font-normal px-4 text-at-gray-700 text-center">
           By submitting your details, you acknowledge that you accept our{" "}
           <a
