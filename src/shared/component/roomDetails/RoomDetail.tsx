@@ -34,7 +34,7 @@ const RoomDetail: React.FC<IProps> = ({
         />
         <span className="text-sm font-normal text-at-gray-700">{bathroom}</span>
       </div>
-      <div className="flex items-center gap-2 pl-2">
+      <div className="flex items-center gap-2 px-2">
         <Image
           src="https://resi.uatz.view.com.au/viewstatic/lancer/_next/static/media/parking.4027a27b.svg"
           alt="Parking Icon"

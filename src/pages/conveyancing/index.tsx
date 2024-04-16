@@ -103,24 +103,54 @@ const ConveyancingPage = () => {
           <ShowMore
             collapseHeight={75}
             expandHeight={96}
-            content="Marie was excellent, very prompt, clear and friendly. Would recommend
-for first home buyers who want to be kept in the loop and shown all the
-steps."
-          />
+            expandText="Show More"
+            collapseText="Show Less"
+          >
+            <p>
+              Marie was excellent, very prompt, clear and friendly. Would
+              recommend for first home buyers who want to be kept in the loop
+              and shown all the steps.
+            </p>
+          </ShowMore>
         </Review>
         <Review week={2} name="Brendan Freeman">
           <ShowMore
             collapseHeight={75}
             expandHeight={360}
-            content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
-          />
+            expandText="Show More"
+            collapseText="Show Less"
+          >
+            <p>
+              We were fortunate enough to have Carley from Settle Easy help us
+              with our first home purchase. We feel incredibly lucky that we had
+              her to explain the different parts of the process and answer the
+              many questions we had. We said to one another multiple times
+              &apos;Thank god for Carley, she&apos;s incredible.&apos; It meant
+              a lot that she was so forward with getting details, and advocating
+              for us with the sellers and always keeping us up to date with what
+              was happening. We cant thank her enough for everything she did for
+              us.
+            </p>
+          </ShowMore>
         </Review>
         <Review week={2} name="Emma Gerts">
           <ShowMore
             collapseHeight={75}
             expandHeight={360}
-            content="We were fortunate enough to have Carley from Settle Easy help us with our first home purchase. We feel incredibly lucky that we had her to explain the different parts of the process and answer the many questions we had. We said to one another multiple times 'Thank god for Carley, she's incredible.' It meant a lot that she was so forward with getting details, and advocating for us with the sellers and always keeping us up to date with what was happening. We can't thank her enough for everything she did for us."
-          />
+            expandText="Show More"
+            collapseText="Show Less"
+          >
+            <p>
+              We are first time property buyers and were buying a block of land
+              - Carley from Settle Easy was absolutely amazing from start to
+              finish. She went above and beyond at every single stage of the
+              process, keeping us in the loop the entire time, explaining what
+              she was doing and why, making sure we understood what was
+              happening. Buying a property is stressful enough, you don&apos;t
+              need the extra worry of a Conveyancer that needs constant chasing.
+              Incredible service!
+            </p>
+          </ShowMore>
         </Review>
       </>
     );

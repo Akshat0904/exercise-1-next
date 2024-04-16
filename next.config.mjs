@@ -9,6 +9,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "resi.uatz.view.com.au",
       },
+      {
+        protocol: "https",
+        hostname: "d126h31mg8tzcs.cloudfront.net",
+      },
     ],
   },
   redirects: async () => {

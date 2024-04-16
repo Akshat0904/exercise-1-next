@@ -130,6 +130,7 @@ interface IAddress {
     email: string[];
     enquiryConfig: IEnquiryConfig;
   }
+
   
   interface IDevelopmentDetail {
     id: string;
@@ -159,7 +160,8 @@ interface IAddress {
     details: IDetails;
     displaySuite: {
       address: IAddress
-    }
+    };
+    description: IDescription
   }
 
 

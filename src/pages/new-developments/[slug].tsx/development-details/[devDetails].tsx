@@ -1,11 +1,15 @@
 import Image from "next/image";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Button from "@/src/shared/component/button/Button";
 import Layout from "@/src/shared/component/layout/Layout";
 import HeroSection from "@/src/shared/component/hero-section/HeroSection";
 import { IDevDetails } from "@/src/module/developmentDetail/developmentDetail.interface";
 import { SOCIAL_MEDIA_LINKS } from "@/src/module/developmentDetail/developmentDetail.constants";
-import RoomDetail from "@/src/shared/component/roomDetails/RoomDetail";
+import About from "@/src/module/developmentDetail/components/About";
+import ShowMore from "@/src/shared/component/showmore/ShowMore";
+import PropertyCard from "@/src/shared/component/propertyCard/PropertyCard";
+import LocationDetails from "@/src/module/developmentDetail/components/Location";
+import Accordion from "@/src/shared/component/accordian/Accordion";
 
 const DevDetails = (props: IDevDetails) => {
   const {
@@ -18,8 +22,13 @@ const DevDetails = (props: IDevDetails) => {
     displaySuite,
     projectTypes,
     totalProperties,
+    description,
+    properties,
   } = props.devDetail;
-  const Address = `${address.thoroughfareNumber} ${address.thoroughfare}, ${address.area}, ${address.state} ${address.postalCode} `;
+
+  const Address: string = `${address.thoroughfareNumber} ${address.thoroughfare}, ${address.area}, ${address.state} ${address.postalCode}`;
+
+  const DisplayLocation: string = `${displaySuite.address.thoroughfareNumber} ${displaySuite.address.thoroughfare}, ${displaySuite.address.area}, ${displaySuite.address.shortenState} ${displaySuite.address.postalCode}`;
 
   const renderHeroSection = (): JSX.Element => {
     return (
@@ -89,83 +98,95 @@ const DevDetails = (props: IDevDetails) => {
     );
   };
 
+  const renderProperties = (): JSX.Element => {
+    return (
+      <div className="border-b border-at-light-500 pb-8 my-8 w-full">
+        {properties.map((property) => (
+          <PropertyCard
+            key={property.title}
+            url={property.files.thumbnail[0].url}
+            propertyTitle={property.title}
+            propertyPrice={property.priceDisplay}
+            propertyDescription={property.discr}
+            bedRooms={property.bedrooms}
+            bathRooms={property.bathrooms}
+            carSpaces={property.carSpaces}
+          />
+        ))}
+      </div>
+    );
+  };
+
   return (
     <Layout>
       <main className="p-4 xl:p-0 xl:py-8 max-w-1200 mx-auto font-dmSans">
         <section className="flex flex-col lg:flex-row gap-4 mt-4 lg:mt-8 mb-8">
           {renderHeroSection()}
         </section>
-        <section className="w-full lg:w-8/12 flex flex-col font-dmSans text-at-gray-500">
-          <p className="text-at-lg font-medium">{`About ${title}`}</p>
-          <h2 className="text-at-lg font-medium mt-4 mb-2 lg:text-xl">
-            {Address}
-          </h2>
-          <p className="text-base font-normal text-at-gray-700 mb-2">{`From $${priceSearch}`}</p>
-          <RoomDetail
-            bedroom={bedrooms}
-            bathroom={bathrooms}
-            parking={carSpaces}
+        <section className="w-full lg:w-8/12 ">
+          <About
+            title={title}
+            address={Address}
+            priceSearch={priceSearch}
+            bedrooms={bedrooms}
+            bathrooms={bathrooms}
+            carSpaces={carSpaces}
+            DisplayLocation={DisplayLocation}
+            projectTypes={projectTypes}
+            totalProperties={totalProperties}
           />
-          <div className="lg:flex border-b border-at-light-500 pb-8">
-            <div className="mb-2 lg:border-r lg:border-at-light-500 lg:pr-6">
-              <div className="flex gap-2 items-center mb-1">
-                <svg
-                  width="16"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.49984 15.0003L1.6665 18.3337V5.00033L7.49984 1.66699M7.49984 15.0003L13.3332 18.3337M7.49984 15.0003V1.66699M13.3332 18.3337L18.3332 15.0003V1.66699L13.3332 5.00033M13.3332 18.3337V5.00033M13.3332 5.00033L7.49984 1.66699"
-                    stroke="#666666"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-                <span className="text-sm font-normal text-at-gray-700">
-                  Display Location
-                </span>
-              </div>
-              <p className="text-base font-normal">{`${displaySuite.address.thoroughfareNumber} ${displaySuite.address.thoroughfare}, ${displaySuite.address.area}, ${displaySuite.address.shortenState} ${displaySuite.address.postalCode}`}</p>
+        </section>
+        <section className="w-full lg:w-8/12 mt-6 lg:mt-8 border-b pb-8">
+          <ShowMore
+            expandHeight={1157}
+            collapseHeight={200}
+            expandText="Read More"
+            collapseText="Read Less"
+            blur
+          >
+            <div
+              className="flex gap-7 flex-col"
+              dangerouslySetInnerHTML={{ __html: description.textProfile }}
+            ></div>
+          </ShowMore>
+        </section>
+        <section className="w-full lg:w-8/12">
+          <h3 className="text-at-lg font-bold mb-4 text-at-gray-500">
+            Off-The-Plan Residences For Sale At {title}
+          </h3>
+          {renderProperties()}
+        </section>
+        <section className="w-full lg:w-8/12  text-at-gray-500 ">
+          <LocationDetails
+            title={title}
+            address={Address}
+            displayLocation={DisplayLocation}
+          />
+        </section>
+        <section className="w-full lg:w-8/12 text-at-gray-500">
+          <div className="border-t mt-4 pt-8 lg:mt-8">
+            <div className="flex flex-col ">
+              <h3 className="text-at-lg font-bold">Insights on Surrey hills</h3>
             </div>
-            <div className="mb-2 lg:pl-6 lg:border-r lg:border-at-light-500 lg:pr-6">
-              <div className="flex gap-2 items-center mb-1">
-                <svg
-                  width="16"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.49984 15.0003L1.6665 18.3337V5.00033L7.49984 1.66699M7.49984 15.0003L13.3332 18.3337M7.49984 15.0003V1.66699M13.3332 18.3337L18.3332 15.0003V1.66699L13.3332 5.00033M13.3332 18.3337V5.00033M13.3332 5.00033L7.49984 1.66699"
-                    stroke="#666666"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-                <span className="text-sm font-normal text-at-gray-700">
-                  Property Type
-                </span>
-              </div>
-              <p className="text-base font-normal">{projectTypes}</p>
-            </div>
-            <div className="lg:pl-6">
-              <div className="flex gap-2 items-center mb-1">
-                <Image
-                  src="https://resi.uatz.view.com.au/viewstatic/lancer/_next/static/media/new-dev-home.a180cb61.svg"
-                  alt="Home Icon"
-                  width={14}
-                  height={15}
-                />
-                <span className="text-sm font-normal text-at-gray-700">
-                  size
-                </span>
-              </div>
-              <p className="text-base font-normal">{totalProperties}</p>
+            <div className="my-10  w-full">
+              <Accordion
+                title="Meet the Neighbors near Surrey hills"
+                description="With luxurious 2 and 3 bedroom apartments on offer, the development is a product of years of experience by a team of Australia’s best designers. Architecture and interiors have been championed by Australia’s preeminent firm Elenberg Fraser with lush landscapes by Openwork."
+                openIcon="^"
+                closeIcon="^"
+                openSpanClass="rotate-180 text-[16px]"
+                closeSpanClass="text-[16px]"
+                divClass="px-4"
+              />
+              <Accordion
+                title="Surrey hills Suburb Trends"
+                description="Positioned in one of Melbourne’s most established and leafy neighborhoods, Arbour Park introduces elevated modern living to the charming locale of Surrey Hills."
+                openIcon="^"
+                closeIcon="^"
+                openSpanClass="rotate-180 text-[16px]"
+                closeSpanClass="text-[16px]"
+                divClass="px-4"
+              />
             </div>
           </div>
         </section>
@@ -176,7 +197,9 @@ const DevDetails = (props: IDevDetails) => {
 
 export default DevDetails;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
   const { params } = context;
   let devDetailSlug;
   if (params) {
@@ -192,19 +215,26 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
-  const data = await fetch(
-    "https://run.mocky.io/v3/32bc605c-45b7-49f9-8a1a-ee8aa84d2289"
-  );
+  try {
+    const data = await fetch(
+      "https://run.mocky.io/v3/32bc605c-45b7-49f9-8a1a-ee8aa84d2289"
+    );
 
-  const resData = await data.json();
-  const developmentDetails = await resData.props.pageProps.data
-    .developmentDetail;
-  // console.log(resData["props"]["pageProps"]["data"]["developmentDetail"]);
-  // console.log(developmentDetails);
-
-  return {
-    props: {
-      devDetail: developmentDetails,
-    },
-  };
+    const resData = await data.json();
+    const developmentDetails = await resData.props.pageProps.data
+      .developmentDetail;
+    return {
+      props: {
+        devDetail: developmentDetails,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: {
+          message: "Error occurred while fetching data",
+        },
+      },
+    };
+  }
 };

@@ -2,12 +2,24 @@ import { useState } from "react";
 import { ReactNode } from "react";
 
 interface IProps {
-  divClass: string;
+  divClass?: string;
   title: string;
+  openIcon: string;
+  closeIcon: string;
+  openSpanClass?: string;
+  closeSpanClass?: string;
   description: string | ReactNode;
 }
 
-const Accordion = ({ title, description, divClass }: IProps) => {
+const Accordion = ({
+  title,
+  description,
+  divClass,
+  openSpanClass,
+  closeSpanClass,
+  openIcon,
+  closeIcon,
+}: IProps) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
   const toggleAccordian = (): void => {
     setAccordionOpen((prev) => !prev);
@@ -19,8 +31,13 @@ const Accordion = ({ title, description, divClass }: IProps) => {
         className="flex items-center justify-between w-full cursor-pointer py-3.5"
       >
         <p className="text-base text-left font-bold pr-2">{title}</p>
-        <span className="text-xl font-medium pb-1">
-          {accordionOpen ? "-" : "+"}
+        <span
+          className={
+            "text-xl font-medium pb-1 " +
+            (accordionOpen ? openSpanClass : closeSpanClass)
+          }
+        >
+          {accordionOpen ? closeIcon : openIcon}
         </span>
       </button>
       <div

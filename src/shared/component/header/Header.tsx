@@ -25,7 +25,7 @@ const Header = ({ toggleNav }: IProps): JSX.Element => {
   };
 
   return (
-    <div className="sticky top-0 z-50  font-medium ">
+    <div className="sticky top-0 z-30  font-medium ">
       <nav className="border-b bg-white border-at-light-500 h-15 xl:h-16 ">
         <div className="flex h-15 md:h-auto pl-0.5 pr-1.5 xl:pl-0 xl:pr-0 justify-center items-center relative xl:static xl:bottom-0 max-w-1200 m-auto">
           <button className="flex xl:hidden relative" onClick={toggleNav}>

@@ -96,6 +96,8 @@ const Faq = (): JSX.Element => {
             key={faqDetail.title}
             title={faqDetail.title}
             description={faqDetail.description}
+            openIcon="+"
+            closeIcon="-"
           />
         ))}
       </div>
