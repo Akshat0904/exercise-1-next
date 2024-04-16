@@ -15,16 +15,6 @@ interface IAddress {
     updatedAt: string;
   }
   
-  interface IShowcaseHeaders {
-    faq: null;
-    about: null;
-    articles: null;
-    location: null;
-    childListing: null;
-    suburbInsights: null;
-    supplierInsights: null;
-    featuresAmenities: null;
-  }
   
   interface IThumbnail {
     id: string;
@@ -95,57 +85,13 @@ interface IAddress {
     description: IDescription;
   }
   
-  interface IFile {
-    thumbnail: IThumbnail[];
-    featuredThumbnail: IThumbnail[];
-  }
-  
-  interface IGallery {
-    url: string
-    altTag: string
-  }
-
-  interface IAmenity {
-    description: string;
-    amenity: {
-        id: string;
-        name: string;
-        icon: string
-    }
-  }
-
-  interface IEnquiryConfig {
-    video_enquiry: string;
-    general_enquiry: string;
-  }
-  
-  interface IDetails {
-    items: number;
-    levels: number;
-    completionDate: string;
-    bedroomOptions: string;
-    stampDuty: null; 
-    corporateFees: null; 
-    phone: string;
-    email: string[];
-    enquiryConfig: IEnquiryConfig;
-  }
-
-  
   interface IDevelopmentDetail {
-    id: string;
     title: string;
-    status: string;
     projectStatus: null;
-    featuredWeight: number;
     discr: string;
-    updatedAt: string;
     totalProperties: number;
-    classification: string;
-    showcaseHeaders: IShowcaseHeaders;
     projectTypes: string;
     priceSearch: string;
-    priceDisplay: number;
     bedrooms: string;
     bathrooms: string;
     carSpaces: string;
@@ -153,11 +99,6 @@ interface IAddress {
     private_pool: string;
     address: IAddress;
     properties : IProperties[];
-    files: IFile;
-    image: string;
-    galleries: IGallery[];
-    amenities: IAmenity[];
-    details: IDetails;
     displaySuite: {
       address: IAddress
     };
