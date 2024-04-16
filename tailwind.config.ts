@@ -17,6 +17,7 @@ const config: Config = {
         '112': '112px',
         '198' : '198px',
         '200': '200px',
+        '376': '376px',
         '432' : '432px',
         '446' : '446px',
         '500': '500px',
@@ -34,7 +35,8 @@ const config: Config = {
         'at-primary-50': '#E8F4FD',
         'at-red-500': '#DB4444',
         'at-light-700': '#E6E6E6',
-        'at-light-200': '#F6F6F6'
+        'at-light-200': '#F6F6F6',
+        'grayIcon': '#BCBCBC' 
       }
     },
     fontFamily : {
