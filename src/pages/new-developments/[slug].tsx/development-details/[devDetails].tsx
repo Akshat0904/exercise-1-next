@@ -117,6 +117,36 @@ const DevDetails = (props: IDevDetails) => {
     );
   };
 
+  const renderAccordian = (): JSX.Element => {
+    return (
+      <div className="border-t mt-4 pt-8 lg:mt-8">
+        <div className="flex flex-col ">
+          <h3 className="text-at-lg font-bold">Insights on Surrey hills</h3>
+        </div>
+        <div className="my-10  w-full">
+          <Accordion
+            title="Meet the Neighbors near Surrey hills"
+            description="With luxurious 2 and 3 bedroom apartments on offer, the development is a product of years of experience by a team of Australia’s best designers. Architecture and interiors have been championed by Australia’s preeminent firm Elenberg Fraser with lush landscapes by Openwork."
+            openIcon="^"
+            closeIcon="^"
+            openSpanClass="rotate-180 text-[16px]"
+            closeSpanClass="text-[16px]"
+            divClass="px-4"
+          />
+          <Accordion
+            title="Surrey hills Suburb Trends"
+            description="Positioned in one of Melbourne’s most established and leafy neighborhoods, Arbour Park introduces elevated modern living to the charming locale of Surrey Hills."
+            openIcon="^"
+            closeIcon="^"
+            openSpanClass="rotate-180 text-[16px]"
+            closeSpanClass="text-[16px]"
+            divClass="px-4"
+          />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <Layout>
       <main className="p-4 xl:p-0 xl:py-8 max-w-1200 mx-auto font-dmSans">
@@ -164,31 +194,7 @@ const DevDetails = (props: IDevDetails) => {
           />
         </section>
         <section className="w-full lg:w-8/12 text-at-gray-500">
-          <div className="border-t mt-4 pt-8 lg:mt-8">
-            <div className="flex flex-col ">
-              <h3 className="text-at-lg font-bold">Insights on Surrey hills</h3>
-            </div>
-            <div className="my-10  w-full">
-              <Accordion
-                title="Meet the Neighbors near Surrey hills"
-                description="With luxurious 2 and 3 bedroom apartments on offer, the development is a product of years of experience by a team of Australia’s best designers. Architecture and interiors have been championed by Australia’s preeminent firm Elenberg Fraser with lush landscapes by Openwork."
-                openIcon="^"
-                closeIcon="^"
-                openSpanClass="rotate-180 text-[16px]"
-                closeSpanClass="text-[16px]"
-                divClass="px-4"
-              />
-              <Accordion
-                title="Surrey hills Suburb Trends"
-                description="Positioned in one of Melbourne’s most established and leafy neighborhoods, Arbour Park introduces elevated modern living to the charming locale of Surrey Hills."
-                openIcon="^"
-                closeIcon="^"
-                openSpanClass="rotate-180 text-[16px]"
-                closeSpanClass="text-[16px]"
-                divClass="px-4"
-              />
-            </div>
-          </div>
+          {renderAccordian()}
         </section>
       </main>
     </Layout>
